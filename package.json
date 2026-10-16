@@ -1,0 +1,109 @@
+{
+  "name": "rapier-math",
+  "version": "2.4.1",
+  "description": "Self-contained offline LaTeX-to-SVG rendering with Latin Modern outlines, optional Markdown integrations and streaming helpers.",
+  "type": "module",
+  "main": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "sideEffects": [
+    "./dist/rapier-math.js",
+    "./dist/accessible.css"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.mjs"
+    },
+    "./mathml": {
+      "types": "./dist/mathml.d.ts",
+      "default": "./dist/mathml.mjs"
+    },
+    "./combined": {
+      "types": "./dist/combined.d.ts",
+      "default": "./dist/combined.mjs"
+    },
+    "./accessible": {
+      "types": "./dist/accessible.d.ts",
+      "default": "./dist/accessible.mjs"
+    },
+    "./delimiters": {
+      "types": "./dist/delimiters.d.ts",
+      "default": "./dist/delimiters.mjs"
+    },
+    "./markdown-it": {
+      "types": "./dist/markdown-it.d.ts",
+      "default": "./dist/markdown-it.mjs"
+    },
+    "./rehype": {
+      "types": "./dist/rehype.d.ts",
+      "default": "./dist/rehype.mjs"
+    },
+    "./stream": {
+      "types": "./dist/stream.d.ts",
+      "default": "./dist/stream.mjs"
+    },
+    "./accessible.css": "./dist/accessible.css",
+    "./classic": {
+      "types": "./dist/classic.d.ts",
+      "default": "./dist/rapier-math.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "peerDependencies": {
+    "markdown-it": "^14.1.0 || ^15.0.0",
+    "@types/markdown-it": "^14.1.0",
+    "hast-util-from-html": "^2.0.0",
+    "@types/hast": "^3.0.0",
+    "vfile": "^6.0.0"
+  },
+  "peerDependenciesMeta": {
+    "markdown-it": {
+      "optional": true
+    },
+    "@types/markdown-it": {
+      "optional": true
+    },
+    "hast-util-from-html": {
+      "optional": true
+    },
+    "@types/hast": {
+      "optional": true
+    },
+    "vfile": {
+      "optional": true
+    }
+  },
+  "files": [
+    "dist",
+    "src",
+    "docs",
+    "examples",
+    "tests",
+    "LICENSE",
+    "README.md"
+  ],
+  "license": "SEE LICENSE IN LICENSE",
+  "author": "Jack Skipworth",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jackskip22/rapier-math.git"
+  },
+  "homepage": "https://github.com/jackskip22/rapier-math#readme",
+  "bugs": {
+    "url": "https://github.com/jackskip22/rapier-math/issues"
+  },
+  "keywords": [
+    "math",
+    "tex",
+    "latex",
+    "svg",
+    "typesetting",
+    "latin-modern",
+    "markdown",
+    "markdown-it",
+    "rehype",
+    "unified",
+    "offline",
+    "math-rendering"
+  ]
+}
