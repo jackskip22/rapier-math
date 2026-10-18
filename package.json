@@ -1,6 +1,6 @@
 {
   "name": "rapier-math",
-  "version": "2.4.1",
+  "version": "2.6.1",
   "description": "Self-contained offline LaTeX-to-SVG rendering with Latin Modern outlines, optional Markdown integrations and streaming helpers.",
   "type": "module",
   "main": "./dist/index.mjs",
@@ -78,9 +78,9 @@
     "src",
     "docs",
     "examples",
-    "tests",
     "LICENSE",
-    "README.md"
+    "README.md",
+    "CHANGELOG.md"
   ],
   "license": "SEE LICENSE IN LICENSE",
   "author": "Jack Skipworth",
