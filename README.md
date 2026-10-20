@@ -47,4 +47,4 @@ licensed under the GUST Font License. [LICENSE](LICENSE) contains both complete 
 [Component provenance](docs/math-components.json) and [source hashes](docs/math-resources.json)
 travel with the package.
 
-Version 2.6.1. Classic payload: 733943 bytes; gzip (level 9): 418021 bytes.
+Version 2.7.0. Classic payload: 742684 bytes; gzip (level 9): 421702 bytes.
