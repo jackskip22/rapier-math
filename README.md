@@ -1,8 +1,6 @@
 # Rapier Math
 
-Offline TeX formulas as SVG or structured MathML. Embedded Latin Modern outlines for SVG; font-free native MathML. Synchronous, with no runtime downloads.
-
-## Use
+TeX to SVG or MathML, synchronously and offline. Latin Modern outlines are embedded in the SVG, so there are no font requests and no runtime downloads. No dependencies.
 
 ```sh
 npm install rapier-math
@@ -10,41 +8,32 @@ npm install rapier-math
 
 ```js
 import {renderToString} from 'rapier-math';
-const svg = renderToString(String.raw`\frac{a}{b}`);
+
+const svg = renderToString(String.raw`\frac{-b\pm\sqrt{b^2-4ac}}{2a}`);
 ```
 
-For a browser script, load [dist/rapier-math.js](dist/rapier-math.js) and use
-`globalThis.RapierMath`. The native ESM entry is [dist/index.mjs](dist/index.mjs).
-For one-file copying or inline-script embedding, use the classic file above. The native
-ESM entry imports relative `src/math/` modules: install/serve the whole package or bundle
-that import; copying only `dist/index.mjs` is insufficient. A CDN must retain that graph
-or bundle it. Formula rendering stays synchronous and offline after its chosen script
-or module graph has loaded.
+Try it in [Rapier](https://rapier.website): type \$x^2\$.
 
-The SVG entry and classic script include the font. Use `rapier-math/mathml` for font-free MathML,
-`rapier-math/combined` for one-parse SVG and MathML, or `rapier-math/accessible` with its stylesheet
-for host composition. All return synchronously. Type declarations accompany the runtime files.
+## Entry points
 
-- [API and integration guide](docs/api.md)
-- [MathML, accessibility and source contracts](docs/semantics.md)
-- [Runnable examples](examples/README.md)
-- [Font source and regeneration](docs/font-source.md)
-- [Changes](CHANGELOG.md)
+| Import | Gives |
+| --- | --- |
+| `rapier-math` | SVG with the font embedded |
+| `rapier-math/mathml` | Native MathML, no font |
+| `rapier-math/combined` | SVG and MathML from one parse |
+| `rapier-math/accessible` | Accessible output for your own layout, with `rapier-math/accessible.css` |
+| `rapier-math/markdown-it`, `rapier-math/rehype` | Markdown integrations; your parser stays in charge |
+| `rapier-math/stream` | Formulas in streamed text, such as model output |
+| `rapier-math/classic` | [dist/rapier-math.js](dist/rapier-math.js): one file, `globalThis.RapierMath` |
 
-## Develop
+Types ship with every entry. The classic file is the one to copy or inline: 742,684 bytes, 421,702 gzipped, font included. The ES modules import `src/math/`, so serve or bundle the whole package rather than copying `dist/index.mjs` alone.
 
-The classic script and native entry points live in `dist/`. Native entries import the editable
-modules in `src/math/` directly, sharing one parser without a duplicate generated renderer. Build
-tools live in `src/tools/`. Optional adapters have one source copy in `dist/`. Examples and documentation each
-have their own directory. Only the current release is kept in this checkout.
+[API](docs/api.md) · [MathML and accessibility](docs/semantics.md) · [Examples](examples/README.md) · [Font](docs/font-source.md) · [Changes](CHANGELOG.md)
 
-Run `node src/tools/build-math.mjs --package .` to regenerate the classic and ESM files from source.
+## Build
+
+`node src/tools/build-math.mjs --package .` regenerates `dist/` from `src/math/`.
 
 ## License
 
-The renderer and adapters are MIT-licensed. Embedded Latin Modern outlines and metrics are
-licensed under the GUST Font License. [LICENSE](LICENSE) contains both complete grants.
-[Component provenance](docs/math-components.json) and [source hashes](docs/math-resources.json)
-travel with the package.
-
-Version 2.7.0. Classic payload: 742684 bytes; gzip (level 9): 421702 bytes.
+Code: MIT. Embedded Latin Modern outlines and metrics: GUST Font License. Both are in [LICENSE](LICENSE). [Components](docs/math-components.json) and [source hashes](docs/math-resources.json) ship with the package.

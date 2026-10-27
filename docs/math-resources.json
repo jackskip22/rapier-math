@@ -139,8 +139,8 @@
     {
       "file": "math/package-readme.mjs",
       "packageFile": "src/math/package-readme.mjs",
-      "bytes": 2458,
-      "sha256": "ed03aa38d7ed3d01fbab6836d2827ee0b2565bca4e998af7172e2da940611495"
+      "bytes": 1949,
+      "sha256": "a852b158999d03ec6a4b2e479cb49bf246e9b8f14d4b54a86d67e32bf7b58bb1"
     },
     {
       "file": "math/README.md",
