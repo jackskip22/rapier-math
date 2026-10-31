@@ -10,4 +10,4 @@ declare module 'vfile' {
   }
 }
 /** Install after sanitization. Recognizes remark-rehype math code nodes. */
-export default function rehypeRapierMath(options?: IntegrationOptions): (tree: Root, file: VFile) => void;
+export default function rehypeRapierMath(options?: IntegrationOptions): (tree: Root, file?: VFile) => void;

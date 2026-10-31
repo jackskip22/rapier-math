@@ -286,12 +286,13 @@ visits, 4 Mi outline characters and 8 Mi composed SVG characters. Complete retur
 alternatives and diagnostics, is capped at 24 Mi UTF-16 code units. These are output/work bounds, not peak
 heap or device-memory claims. A later good render has a fresh budget.
 
-SVG labels contain raw TeX, not semantic MathML or mathematical speech. Ordinary equations are images in
-the accessibility tree. Equations containing authored HTTP(S) links use a group so the links remain exposed;
-each link is keyboard-focusable and labeled with its destination. Keep the editable source or a separate
-copy-source affordance in your host. Full semantic navigation, speech and screen-reader parity are not
-provided. A future semantic serializer needs an explicit AST-to-MathML mapping and assistive-technology
-evaluation; adding a raw TeX label does not satisfy that requirement.
+SVG-only output labels contain raw TeX, not MathML or mathematical speech. Ordinary SVG equations are images in
+the accessibility tree. Equations with authored HTTP(S) links use a group so the links remain exposed,
+keyboard-focusable and labeled with their destinations. Use `rapier-math/mathml` for structured MathML or
+`rapier-math/accessible` with `rapier-math/accessible.css` for MathML-backed presentation; see
+[MathML and accessibility](semantics.md). Keep editable source or a copy-source control in the host.
+Mathematical speech, navigation and screen-reader parity still need host testing. Improving SVG-only
+accessibility remains future work.
 
 ## Security and deployment
 
@@ -332,8 +333,9 @@ For a classic script, use `dist/rapier-math.js` and `globalThis.RapierMath`.
 The payload includes the font: it is not a few-kilobyte renderer. Payload counts below describe this
 build, not npm tarball size or a comparison against another library.
 
-Run `node tests/verify.mjs` and `node tests/check.mjs` from this checkout. The carried source rebuilds the exact
-classic payload and ESM module; receipts also cover the adapters, declarations and examples. Follow
+Run `node src/tools/build-math.mjs --package .` from the installed package directory. The carried source rebuilds the
+classic payload and ESM modules and updates their source receipt and component provenance. The receipt also covers
+the adapters, declarations and examples. Follow
 `docs/font-source.md` to regenerate font data. License and font provenance are carried with every build.
 
 Verified-claim scope: synchronous self-contained formula rendering; opt-in Markdown integrations; bounded

@@ -26,7 +26,7 @@ Try it in [Rapier](https://rapier.website): type \$x^2\$.
 | `rapier-math/stream` | Formulas in streamed text, such as model output |
 | `rapier-math/classic` | [dist/rapier-math.js](dist/rapier-math.js): one file, `globalThis.RapierMath` |
 
-Types ship with every entry. The classic file is the one to copy or inline: 742,684 bytes, 421,702 gzipped, font included. The ES modules import `src/math/`, so serve or bundle the whole package rather than copying `dist/index.mjs` alone.
+Types ship with every entry. The classic file is the one to copy or inline: 742,684 bytes, 421,701 gzipped, font included. The ES modules import `src/math/`, so serve or bundle the whole package rather than copying `dist/index.mjs` alone.
 
 [API](docs/api.md) · [MathML and accessibility](docs/semantics.md) · [Examples](examples/README.md) · [Font](docs/font-source.md) · [Changes](CHANGELOG.md)
 

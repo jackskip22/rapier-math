@@ -1,12 +1,12 @@
 {
-  "bundle": "rapier-math-2.7.0.js",
+  "bundle": "rapier-math-3.0.0.js",
   "packageBundle": "dist/rapier-math.js",
-  "version": "2.7.0",
+  "version": "3.0.0",
   "license": "MIT AND LicenseRef-GUST-Font-License",
   "bytes": 742684,
-  "gzipBytes": 421702,
-  "sha256": "cb1c935e84744d41d516c03607a8383ff801ecfc6acdfd63b2eb38be0bc20d80",
-  "sha384": "1rjhOOw690Mr3aVXwRTPlwQO2atMrWHY8Rm3nZ+SZRrm5mB9HK5FkY6ZWCDYtgzv",
+  "gzipBytes": 421701,
+  "sha256": "2825714cd36ab23353d28c7947666e28dee9a9bdbf62b10fd0a8ab342e69ee47",
+  "sha384": "t7kbxrkzF1YSQz1jItY5cbSBCUaO5aV0PPaQ3tgWvIXXS2jRL9Oq/6TLazcPCpJr",
   "sources": [
     {
       "file": "math/font.js",
@@ -90,7 +90,7 @@
       "file": "math/classic.js",
       "packageFile": "src/math/classic.js",
       "bytes": 269,
-      "sha256": "ecc0aabe977198d013ebcbcfd739910e55cbb28303af5db97eb31333d7de4189"
+      "sha256": "c4d5fcbf318dd8ecb10871f67826111c2a436ca17f9065491e462eb721229857"
     }
   ],
   "recipe": [
@@ -103,8 +103,8 @@
     {
       "file": "math/FONT-SOURCE.md",
       "packageFile": "docs/font-source.md",
-      "bytes": 12702,
-      "sha256": "7d0d20d5982b5d4378a29aea803199df5f7618f88670f2c3b25545f7932db23d"
+      "bytes": 12641,
+      "sha256": "9827c9ab8e0b600f3b8646b0611819b68b52dc60b526aa39992a22111d9847eb"
     },
     {
       "file": "math/FONT-LICENSE.txt",
@@ -115,8 +115,8 @@
     {
       "file": "tools/build-math.mjs",
       "packageFile": "src/tools/build-math.mjs",
-      "bytes": 10967,
-      "sha256": "11c6f7d5ab962d24ff70a5497c23ccefd624f1add20b8840d8bb0c6f085ecbf9"
+      "bytes": 11595,
+      "sha256": "fc9b00db8882ebcc4fa316efd8a8749dab444926fc0f994b1e4ec32ffcd9ae18"
     },
     {
       "file": "math/LICENSE-MIT",
@@ -145,20 +145,20 @@
     {
       "file": "math/README.md",
       "packageFile": "docs/api.md",
-      "bytes": 24062,
-      "sha256": "59963d4156549530b73d15d2dc66d4f7cec108e4767856785605e71fe1f6162a"
+      "bytes": 24187,
+      "sha256": "636243ac6b4f9a5687359eaaa95abdd79ecc145a11ca0f9b393ff82166777bb4"
     },
     {
       "file": "math/CHANGELOG.md",
       "packageFile": "CHANGELOG.md",
-      "bytes": 389,
-      "sha256": "621ffa760f4ebeb72c7882e46caf8c8cb815abde50cd98d123da5a34ea105397"
+      "bytes": 1024,
+      "sha256": "4adf7ef95a37ca26ea3adfd98a6b2bef77120fa4b0cb2c45ad6eaa6c9d53b345"
     },
     {
       "file": "math/SEMANTICS.md",
       "packageFile": "docs/semantics.md",
-      "bytes": 18282,
-      "sha256": "98984313665984aaa29fd816cc7b79691deac7450d5d76b8e7dc0f79b575e2cf"
+      "bytes": 18413,
+      "sha256": "e0cd9370ffe88a38658bd4de193002429ad202b772655a0e8c7104e426ba1519"
     }
   ],
   "components": [
@@ -266,14 +266,14 @@
     {
       "file": "math/combined.d.ts",
       "packageFile": "dist/combined.d.ts",
-      "bytes": 286,
-      "sha256": "5f3837d9bb0c095365a387ce88ae0c4bccd538ba75d08152a2a540c51278d7d7"
+      "bytes": 313,
+      "sha256": "b48989c14ea7d290add0c98ad1758c223f6d0d6a0049170b4d7cff90d44f9698"
     },
     {
       "file": "math/accessible.d.ts",
       "packageFile": "dist/accessible.d.ts",
-      "bytes": 582,
-      "sha256": "d2d2285c084c19b87dae6c1a538b4711233dffd50098fa08bac3b8d41aa43cd3"
+      "bytes": 624,
+      "sha256": "9cef1d88ea6c2e3c44d3cc439fb49adca42726e3c7abfe5f24a684c02e12e56a"
     },
     {
       "file": "math/index.d.ts",
@@ -284,8 +284,8 @@
     {
       "file": "math/classic.d.ts",
       "packageFile": "dist/classic.d.ts",
-      "bytes": 349,
-      "sha256": "0415467509e356a5372caa0778586242de8cc0405aaa5b9db62b231d2f81de39"
+      "bytes": 347,
+      "sha256": "ce6c4d57a671e473a5a66c36a79b612f220954f49a624b22694311ca46a4be25"
     },
     {
       "file": "math/delimiters.d.ts",
@@ -296,20 +296,20 @@
     {
       "file": "math/integration.d.ts",
       "packageFile": "dist/integration.d.ts",
-      "bytes": 1029,
-      "sha256": "8f69318a973d37f8491799c12c28ce66e9512e7f1b09009fa0601be86bdea649"
+      "bytes": 1051,
+      "sha256": "c606cc0e2c693b42af5131c0fb59e6689ece569b7b51c920fe3e78ed56f6dd8f"
     },
     {
       "file": "math/markdown-it.d.ts",
       "packageFile": "dist/markdown-it.d.ts",
-      "bytes": 693,
-      "sha256": "b4bf25c7a72ebb30876b66a4ce21ce293eeae3f08b8ea7962c4589a1aa7f4b80"
+      "bytes": 814,
+      "sha256": "55059b5a4228edbfdb125f3e4c28c373bfe3b4feefb853dc34dc2299e05e734e"
     },
     {
       "file": "math/rehype.d.ts",
       "packageFile": "dist/rehype.d.ts",
-      "bytes": 560,
-      "sha256": "be3d05097c37c72cff12b46503cadfcf24efac396cb4398707136aa267f0a827"
+      "bytes": 561,
+      "sha256": "6cd2fc33830af68d4c995124977e64a6c07b073afcb680ab7d1dde96e2d9dc0c"
     },
     {
       "file": "math/stream.d.ts",

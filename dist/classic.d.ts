@@ -3,7 +3,7 @@ import type RapierMath from './index.js';
 import type {toMathML} from './mathml.js';
 import type {renderWithMathML} from './combined.js';
 declare global {
-  const RapierMath: typeof import('./index.js').default & Readonly<{
+  var RapierMath: typeof import('./index.js').default & Readonly<{
     toMathML: typeof toMathML; renderWithMathML: typeof renderWithMathML;
   }>;
 }

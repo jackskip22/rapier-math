@@ -29,6 +29,9 @@ Unicode character absent from the embedded SVG font. A successful SVG does not t
 refusal into success. `renderToString` returns SVG. The complete classic `RapierMath` object
 also exposes `toMathML` and `renderWithMathML`.
 
+`preview` and `caret` apply only to the SVG `render` and `renderToString` methods.
+Combined and accessible rendering use the strict parse and never repair incomplete expressions.
+
 The font-free entry exports `parse` for inspection as well. Parse results are ordinary,
 detached data: changing a returned tree has no effect on subsequent renders. There is no
 public API accepting arbitrary or modified trees for serialization. Local macros are
@@ -223,6 +226,6 @@ These steps are manual acceptance, not an automated pass:
   explore the expression at different granularities and verify nested math within a link.
   Qualify macOS/Safari separately with its actual VoiceOver controls.
 
-Run `node tests/semantics.mjs` from the package for the focused structural/source corpus.
-This optional development check requires Python 3 with `lxml` for strict XML verification;
-the runtime package itself has no dependency on Python, `lxml` or an XML parser.
+Run `node examples/semantic.mjs` from the installed package directory to inspect a formula's
+MathML, parse tree, status and work counters. The runtime package has no dependency on Python,
+`lxml` or an XML parser.

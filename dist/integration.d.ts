@@ -4,7 +4,7 @@ import type {MathSession} from './stream.js';
 export interface IntegrationOptions {
   /** Insert SVG with assistive MathML. Include accessible.css. */
   accessible?: boolean;
-  /** With an explicit session, plain-data options and screen are captured once per document render. */
+  /** With a session, plain-data options are captured once per render. preview/caret apply only without accessible output. */
   renderOptions?: RenderOptions;
   /** Per document. Default 1024. Exhaustion leaves subsequent math as source. */
   maxFormulas?: number;

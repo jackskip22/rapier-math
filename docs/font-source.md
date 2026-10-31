@@ -42,10 +42,10 @@ The generated asset uses Python 3.12, fontTools 4.61.1, Brotli 1.1.0 and zlib 1.
 
 ```sh
 python -m pip install fonttools==4.61.1 Brotli==1.1.0
-python repo/math/build-font.py
+python src/math/build-font.py
 ```
 
-In the standalone package, run `python src/math/build-font.py`. To regenerate without network access, supply the
+To regenerate without network access, supply the
 exact inputs with `--font`, `--mono-font`, `--hook-font`, `--license`, `--lppl` and `--text-font`. `--out` selects the JavaScript path and writes
 the combined license beside it. When available, the generator uses the editor's local Geist font.
 
@@ -78,7 +78,7 @@ The typesetter retains its existing ordinary-letter fallback for those lowercase
 the absent calligraphic forms. Its unencoded glyphs contain no alternative lowercase script alphabet.
 
 Different zlib versions can encode the same exact data differently. The package budget is measured with
-Node 22.23.3 by `tools/build-math.mjs`; the packed stream always decodes to the original coordinates and metrics.
+Node 22.23.3 by `src/tools/build-math.mjs`; the packed stream always decodes to the original coordinates and metrics.
 
 ## Height and optical forms
 

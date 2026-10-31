@@ -1,6 +1,6 @@
 {
   "name": "rapier-math",
-  "version": "2.7.0",
+  "version": "3.0.0",
   "description": "Self-contained offline LaTeX-to-SVG rendering with Latin Modern outlines, optional Markdown integrations and streaming helpers.",
   "type": "module",
   "main": "./dist/index.mjs",

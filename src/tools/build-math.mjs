@@ -12,7 +12,7 @@ import {mathModules, mathClassicSource} from '../math/package-build.mjs';
 import {mathReadme} from '../math/package-readme.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-export const MATH_VERSION = '2.7.0';
+export const MATH_VERSION = '3.0.0';
 export const MATH_BUNDLE = 'rapier-math-' + MATH_VERSION + '.js';
 export const MATH_SOURCES = ['font.js', 'symbols.js', 'parser.js', 'source.js', 'variants.js', 'layout.js', 'fallbacks.js', 'responsive.js', 'api.js', 'browser.js', 'mathml.js', 'semantic-api.js', 'combined.js', 'classic.js'].map(name => 'math/' + name);
 export const MATH_RECIPE = ['math/build-font.py', 'math/FONT-SOURCE.md', 'math/FONT-LICENSE.txt', 'math/package-verify.mjs', 'tools/build-math.mjs', 'math/LICENSE-MIT', 'math/adoption-verify.mjs', 'math/package-build.mjs', 'math/package-layout.mjs', 'math/package-check.mjs', 'math/package-readme.mjs', 'math/README.md', 'math/CHANGELOG.md', 'math/SEMANTICS.md', 'math/semantic-verify.mjs', 'math/typeset-verify.mjs'];
@@ -69,6 +69,9 @@ export async function assembleMath({root = ROOT, packageLayout = false} = {}) {
     const bytes = await read(file);
     inputs.push({file, bytes, text: bytes.toString('utf8')});
   }
+  // Keep the self-contained browser API's version equal to the package identity.
+  const classicVersion = /version:\s*'([^']+)'/.exec(inputs.find(input => input.file === 'math/classic.js')?.text || '')?.[1];
+  if (classicVersion !== MATH_VERSION) throw new Error('The classic Math API version differs from its package version');
   const license = await fontLicense(root, packageLayout);
   if (!inputs[0].text.includes(FONT.copyright) || !inputs[0].text.includes('Complete license: FONT-LICENSE.txt')) throw new Error('The embedded math font is missing its notice');
   // The single-file bundle travels alone, so it carries both complete licenses itself.
@@ -80,6 +83,7 @@ export async function assembleMath({root = ROOT, packageLayout = false} = {}) {
   const sha256 = digest(bytes), sha384 = digest(bytes, 'sha384', 'base64');
   const recipe = [];
   for (const file of MATH_RECIPE) {
+    if (packageLayout && mathPackagePath(file).startsWith('tests/')) continue;
     const content = await read(file);
     recipe.push({file, packageFile: mathPackagePath(file), bytes: content.length, sha256: digest(content)});
   }
@@ -108,11 +112,14 @@ export async function buildMath({root = ROOT, updatePins = true, packageLayout =
       await mkdir(dirname(resolve(root, file)), {recursive: true});
       await writeFile(resolve(root, file), content);
     }
-    await writeFile(resolve(root, 'docs/math-resources.json'), JSON.stringify(resources, null, 2) + '\n');
+    const publicReceipt = JSON.stringify(resources, null, 2) + '\n';
+    await writeFile(resolve(root, 'docs/math-resources.json'), publicReceipt);
     await writeFile(resolve(root, 'README.md'), mathReadme(resources));
     const sbomPath = resolve(root, 'docs/math-components.json');
     const sbom = JSON.parse(await readFile(sbomPath, 'utf8'));
     sbom.packages.find(item => item.name === 'rapier-math').checksums = [{algorithm: 'SHA256', checksumValue: resources.sha256}];
+    sbom.packages.find(item => item.name === 'rapier-math').sourceInfo =
+      'Verified public build inputs: docs/math-resources.json (SHA-256 ' + digest(publicReceipt) + ').';
     sbom.documentNamespace = 'https://rapier.website/spdx/rapier-math-' + resources.version + '-' + resources.sha256;
     await writeFile(sbomPath, JSON.stringify(sbom, null, 2) + '\n');
     return {bundle: MATH_CLASSIC, bytes: bytes.length, sha256: resources.sha256};
